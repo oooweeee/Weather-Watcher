@@ -7,8 +7,7 @@ The UV index will be color coded. Whether the conditions are favorable, moderate
 With a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity.
 Search history will be saved in local storage.
 
-C:\Users\valsp\Documents\Class\Home Work\Weather-Watcher\assets\images\Screenshot 2024-05-30 115641.png
-
+![vals weather watcher](image-1.png)
 
 
 
