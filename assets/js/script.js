@@ -102,3 +102,10 @@ axios.get(forecastQueryURL)
         localStorage.setItem("search", JSON.stringify(searchHistory));
         renderSearchHistory();
     })
+     // Clear History button
+     clearEl.addEventListener("click", function () {
+        localStorage.clear();
+        searchHistory = [];
+        renderSearchHistory();
+    })
+
