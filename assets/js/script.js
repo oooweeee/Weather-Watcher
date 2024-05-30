@@ -43,5 +43,26 @@ function initPage() {
                 axios.get(UVQueryURL)
                     .then(function (response) {
                         let UVIndex = document.createElement("span");
-                        
+
                       // When UV Index is good it will show green, if its ok it will show yellow, if it is bad it will show red  
+                      if (response.data[0].value < 4 ) {
+                        UVIndex.setAttribute("class", "badge badge-success");
+                    }
+                    else if (response.data[0].value < 8) {
+                        UVIndex.setAttribute("class", "badge badge-warning");
+                    }
+                    else {
+                        UVIndex.setAttribute("class", "badge badge-danger");
+                    }
+                    console.log(response.data[0].value)
+                    UVIndex.innerHTML = response.data[0].value;
+                    currentUVEl.innerHTML = "UV Index: ";
+                    currentUVEl.append(UVIndex);
+                });
+// get the 5 day forecast for the city
+let cityID = response.data.id;
+let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIKey;
+axios.get(forecastQueryURL)
+    .then(function (response) {
+        fivedayEl.classList.remove("d-none");
+        
