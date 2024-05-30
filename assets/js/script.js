@@ -94,4 +94,11 @@ axios.get(forecastQueryURL)
                     })
             });
     }
-
+     // this is going to get the history from local storage if there is any
+     searchEl.addEventListener("click", function () {
+        const searchTerm = cityEl.value;
+        getWeather(searchTerm);
+        searchHistory.push(searchTerm);
+        localStorage.setItem("search", JSON.stringify(searchHistory));
+        renderSearchHistory();
+    })
