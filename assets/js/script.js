@@ -17,7 +17,7 @@ function initPage() {
     const APIKey = "0d7a6fae6b37c79c3fa2ccbbbd43b680";
     function getWeather(cityName) {
         // Executeing a current weather get request from open weather api
-        let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIKey;
+        let queryURL = "https://api.openweathermap.org/data/3.0/weather?q=" + cityName + "&appid=" + APIKey;
         axios.get(queryURL)
             .then(function (response) {
 
@@ -36,4 +36,12 @@ function initPage() {
                 currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
                 currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
 
-                // get the ev index
+                // get the uv index
+                let lat = response.data.coord.lat;
+                let lon = response.data.coord.lon;
+                let UVQueryURL = "https://api.openweathermap.org/data/3.0/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&cnt=1";
+                axios.get(UVQueryURL)
+                    .then(function (response) {
+                        let UVIndex = document.createElement("span");
+                        
+                      // When UV Index is good it will show green, if its ok it will show yellow, if it is bad it will show red  
