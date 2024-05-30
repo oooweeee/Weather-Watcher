@@ -15,3 +15,14 @@ function initPage() {
 
     // Assigning my APi to a variable useing my api key
     const APIKey = "0d7a6fae6b37c79c3fa2ccbbbd43b680";
+    function getWeather(cityName) {
+        // Executeing a current weather get request from open weather api
+        let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIKey;
+        axios.get(queryURL)
+            .then(function (response) {
+
+                todayweatherEl.classList.remove("d-none");
+
+                // Parse response to display current weather
+
+                // get the ev index
