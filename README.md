@@ -11,6 +11,6 @@ Search history will be saved in local storage.
 
 
 
-link to deployed site: 
+link to deployed site: https://oooweeee.github.io/Weather-Watcher/
 
 link to GitHub ropositiry:https://github.com/oooweeee/Weather-Watcher
